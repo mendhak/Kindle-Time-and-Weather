@@ -4,6 +4,7 @@ FROM phusion/baseimage:0.9.16
 CMD ["/sbin/my_init"]
 
 #Install dependencies
+RUN apt-get update
 RUN apt-get install python cron lighttpd librsvg2-bin pngcrush
 
 #Set up cron job for updating weather forecast
