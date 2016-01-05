@@ -6,7 +6,7 @@ rm weather-script-output.png
 eips -c
 eips -c
 
-if wget http://server/path/to/weather-script-output.png; then
+if wget http://server:3000/weather-script-output.png; then
 	eips -g weather-script-output.png
 else
 	eips -g weather-image-error.png

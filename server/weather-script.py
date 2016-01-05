@@ -18,8 +18,8 @@ except ImportError:
 # Geographic location
 #
 
-latitude = 39.3286
-longitude = -76.6169
+latitude = os.environ.get('LATITUDE',43.1339)
+longitude = os.environ.get('LONGITUDE',-70.9264)
 
 
 
