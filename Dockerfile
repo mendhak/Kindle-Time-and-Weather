@@ -19,4 +19,4 @@ RUN crontab -l | { cat; echo "25,55 * * * * /www/weather-script.sh"; } | crontab
 RUN /www/weather-script.sh
 
 #Run web server
-CMD[lighttpd -D -f /www/lighttpd.conf]
+CMD ["lighttpd -D -f /www/lighttpd.conf"]
