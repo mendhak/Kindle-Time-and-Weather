@@ -17,3 +17,4 @@ ADD ./server /www
 
 #Run web server
 CMD[lighttpd -D -f /www/lighttpd.conf]
+
