@@ -129,28 +129,28 @@
      id="g3123">
      <text
         id="text3145"
-        x="333"
-        y="110"
+        x="315"
+        y="125"
         font-size="110px"
-        style="font-size:110px;text-anchor:end;font-family:DejaVu Sans">TIME_NOW</text>
+        style="font-size:110px;text-anchor:end;font-family:Arial;font-weight:bold">TIME_NOW</text>
 
   </g>
   <g
-     transform="scale(1.2) translate(50 315)"
+     transform="scale(1.2) translate(110 315)"
      id="g3127">
     <use
        xlink:href="#ICON_ONE"
        id="use3129" />
   </g>
   <g
-     transform="scale(1.2) translate(200 315)"
+     transform="scale(1.2) translate(270 315)"
      id="g3131">
     <use
        xlink:href="#ICON_TWO"
        id="use3133" />
   </g>
   <g
-     transform="scale(1.2) translate(370 315)"
+     transform="scale(1.2) translate(440 315)"
      id="g3135">
     <use
        xlink:href="#ICON_THREE"
@@ -166,67 +166,67 @@
 
   <text
      id="text3155"
-     x="102.92969"
+     x="195"
      y="375"
      font-size="32px"
      style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">Today</text>
 
   <text
      id="text3159"
-     x="136.05887"
+     x="225"
      y="540"
      font-size="58px"
      style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_ONE/LOW_ONE</text>
   <text
      id="text3161"
-     x="150"
+     x="240"
      y="525"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
 
   <text
      id="text3169"
-     x="300.3125"
+     x="390"
      y="375"
      font-size="32px"
      style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_TWO</text>
   <text
      id="text3173"
-     x="314.15454"
+     x="410"
      y="540"
      font-size="58px"
      style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_TWO/LOW_TWO</text>
   <text
      id="text3175"
-     x="333.01663"
+     x="435"
      y="525"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <text
      id="text3183"
-     x="499.82813"
+     x="590"
      y="375"
      font-size="32px"
      style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_THREE</text>
 
   <text
      id="text3187"
-     x="535"
+     x="625"
      y="540"
      font-size="58px"
      style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_THREE/LOW_THREE</text>
   <text
      id="text3189"
-     x="552.0166"
+     x="645"
      y="525"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
 
   <path
-     d="m199,500,0,70,3,0,0-235.5-3,0z"
+     d="m290,500,0,70,3,0,0-235.5-3,0z"
      id="path3197" />
   <path
-     d="m398,500,0,70,3,0,0-235.5-3,0z"
+     d="m490,500,0,70,3,0,0-235.5-3,0z"
      id="path3199" />
   <text
      style="font-size:12px;text-anchor:middle"
