@@ -1,0 +1,9 @@
+
+
+weather:
+  image: kindleweather
+  container_name: kindleweather
+  ports:
+    - "9000:3000"
+  
+  

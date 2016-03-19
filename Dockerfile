@@ -5,7 +5,7 @@ CMD ["/sbin/my_init"]
 
 #Install dependencies
 RUN apt-get update
-RUN apt-get install -y python cron lighttpd librsvg2-bin pngcrush
+RUN apt-get install -y python cron lighttpd librsvg2-bin pngcrush imagemagick
 
 #Add files
 RUN mkdir /www
