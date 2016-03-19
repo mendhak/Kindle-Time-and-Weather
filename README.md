@@ -17,7 +17,7 @@ Image should become available at http://servername/weather-script-output.png
 
 Copy the script files over
 
-    scp -r kindle root@192.168.1.72:/mnt/us/weather
+    scp -r kindle/* root@192.168.1.72:/mnt/us/weather
 
 Create a cron job for on boot
 
