@@ -12,6 +12,8 @@ import urllib2
 from xml.dom import minidom
 import datetime
 import codecs
+import os.path
+import time
 
 
 #
@@ -104,12 +106,26 @@ beaufort_scale = [ 0, 1, 4, 8, 13, 18, 25, 31, 39, 47, 55, 64, 74 ]
 
 
 #
-# Download and parse weather data - location 352448 = Loughton, Essex
+# Download and parse weather data - location 353773 = Sutton, Surrey
 #
-#url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352448?res=daily&key='+myApiKey
-#weather_xml = urllib2.urlopen(url).read()
-weather_xml = '<?xml version="1.0" encoding="UTF-8"?><SiteRep><Wx><Param name="FDm" units="C">Feels Like Day Maximum Temperature</Param><Param name="FNm" units="C">Feels Like Night Minimum Temperature</Param><Param name="Dm" units="C">Day Maximum Temperature</Param><Param name="Nm" units="C">Night Minimum Temperature</Param><Param name="Gn" units="mph">Wind Gust Noon</Param><Param name="Gm" units="mph">Wind Gust Midnight</Param><Param name="Hn" units="%">Screen Relative Humidity Noon</Param><Param name="Hm" units="%">Screen Relative Humidity Midnight</Param><Param name="V" units="">Visibility</Param><Param name="D" units="compass">Wind Direction</Param><Param name="S" units="mph">Wind Speed</Param><Param name="U" units="">Max UV Index</Param><Param name="W" units="">Weather Type</Param><Param name="PPd" units="%">Precipitation Probability Day</Param><Param name="PPn" units="%">Precipitation Probability Night</Param></Wx><DV dataDate="2016-03-19T14:00:00Z" type="Forecast"><Location i="352448" lat="51.6555" lon="0.0698" name="LOUGHTON" country="ENGLAND" continent="EUROPE" elevation="52.0"><Period type="Day" value="2016-03-19Z"><Rep D="NE" Gn="18" Hn="74" PPd="12" S="11" V="VG" Dm="8" FDm="5" W="8" U="2">Day</Rep><Rep D="NNE" Gm="18" Hm="84" PPn="44" S="9" V="VG" Nm="4" FNm="1" W="8">Night</Rep></Period><Period type="Day" value="2016-03-20Z"><Rep D="NNE" Gn="16" Hn="70" PPd="43" S="9" V="VG" Dm="9" FDm="6" W="8" U="2">Day</Rep><Rep D="NW" Gm="7" Hm="90" PPn="6" S="4" V="GO" Nm="3" FNm="1" W="7">Night</Rep></Period><Period type="Day" value="2016-03-21Z"><Rep D="NW" Gn="22" Hn="65" PPd="9" S="11" V="VG" Dm="9" FDm="6" W="7" U="3">Day</Rep><Rep D="NW" Gm="9" Hm="89" PPn="6" S="4" V="GO" Nm="4" FNm="2" W="7">Night</Rep></Period><Period type="Day" value="2016-03-22Z"><Rep D="NW" Gn="13" Hn="68" PPd="8" S="4" V="VG" Dm="9" FDm="8" W="8" U="2">Day</Rep><Rep D="NW" Gm="7" Hm="88" PPn="11" S="4" V="GO" Nm="4" FNm="2" W="8">Night</Rep></Period><Period type="Day" value="2016-03-23Z"><Rep D="WNW" Gn="18" Hn="67" PPd="9" S="9" V="VG" Dm="9" FDm="6" W="8" U="2">Day</Rep><Rep D="WSW" Gm="13" Hm="85" PPn="10" S="7" V="VG" Nm="4" FNm="1" W="7">Night</Rep></Period></Location></DV></SiteRep>'
-print weather_xml
+
+weather_xml=''
+stale=True
+
+if(os.path.isfile(os.getcwd() + "/metoffice.xml")):
+    #Read the contents anyway
+    with open(os.getcwd() + "/metoffice.xml", 'r') as content_file:
+        weather_xml = content_file.read()
+    stale=time.time() - os.path.getmtime(os.getcwd() + "/metoffice.xml") > (12*60*60)
+
+#If old file or file doesn't exist, time to download it
+if(stale):
+    url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/353773?res=daily&key=7557844e-c57a-4fc6-90d0-055fcce3018c'
+    weather_xml = urllib2.urlopen(url).read()
+    with open(os.getcwd() + "/metoffice.xml", "w") as text_file:
+        text_file.write(weather_xml)
+
+
 dom = minidom.parseString(weather_xml)
 
 
@@ -186,10 +202,6 @@ for period in periods:
 
      # and loop
     i=i+1
-
-
-
-
 
 
 

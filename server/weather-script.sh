@@ -8,7 +8,7 @@ date
 echo "------ python get data from metoffice"
 python weather-script.py
 
-echo "------ convert to png"
+echo "------ convert to png and rotate resize for Kindle screen"
 convert -rotate 270 -resize 758x1024\!  -depth 8 weather-script-output.svg weather-script-output.png
 
 echo "------ shrink png"

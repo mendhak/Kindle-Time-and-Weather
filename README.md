@@ -19,7 +19,11 @@ Copy the script files over
 
     scp -r kindle/* root@192.168.1.72:/mnt/us/weather
 
-Create a cron job for on boot
+SSH into the Kindle, and create a cron job for on boot by running
+
+    
+
+
 
 
 
