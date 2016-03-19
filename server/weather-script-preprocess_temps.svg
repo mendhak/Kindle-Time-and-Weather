@@ -8,8 +8,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="800"
-   width="600"
+   height="600"
+   width="800"
    version="1.1"
    id="svg3095"
    inkscape:version="0.48.4 r9939"
@@ -125,206 +125,176 @@
        d="M62.781,0.0062768c-1.621,0.18889-7.737,6.4392-19.093,25.311,3.0187,0.032,5.663,1.6919,7.0938,4.1247,11.41-20.557,13.346-28.772,12.25-29.404-0.0685-0.039435-0.14194-0.043841-0.25-0.031248zm-19.187,29.467c-2.2942,0-4.1562,1.8647-4.1562,4.156s1.862,4.156,4.1562,4.156,4.1562-1.8647,4.1562-4.156-1.862-4.156-4.1562-4.156zm-7.2188,0.0625c-23.477,0.41497-31.531,2.8316-31.531,4.0935,0,1.2609,8.0532,3.6795,31.531,4.0935-0.68785-1.2069-1.0938-2.6066-1.0938-4.0935,0-1.4859,0.40594-2.8856,1.0938-4.0935zm14.406,8.2495c-1.4238,2.4358-4.0448,4.0887-7.0625,4.1247,12.105,20.107,18.216,25.878,19.312,25.248,1.0943-0.63196-0.84705-8.8283-12.25-29.373zm-50.468,2.062c-0.063218-0.0073-0.11601,0.0082-0.15625,0.03125-0.6438,0.373,0.50625,5.156,7.0312,16.999,0.9162-1.38,2.4383-2.304,4.1875-2.438-6.5661-10.832-10.114-14.483-11.062-14.592zm65.062,0c-0.06321-0.0073-0.11601,0.0082-0.15625,0.03125-0.643,0.37298,0.50625,5.1567,7.0312,16.999,0.9172-1.3799,2.4393-2.3034,4.1875-2.4373-6.566-10.833-10.113-14.484-11.061-14.593zm-25.938,3.0311,0,57.121,8.3125,0,0-43.935c-2.379-3.518-5.134-7.856-8.31-13.186zm-27.655,14.28c-1.5295,0-2.75,1.2223-2.75,2.7498s1.2205,2.7811,2.75,2.7811,2.7812-1.2536,2.7812-2.7811-1.2518-2.7498-2.7812-2.7498zm65.094,0c-1.5295,0-2.7812,1.2223-2.7812,2.7498s1.2518,2.7811,2.7812,2.7811c1.5295,0,2.7812-1.2536,2.7812-2.7811s-1.2518-2.7498-2.7812-2.7498zm-60.125,0.344c0.35844,0.73095,0.59375,1.5372,0.59375,2.4061,0,0.87594-0.2293,1.7014-0.59375,2.4373,13.471-0.28298,18.156-1.6671,18.156-2.4061,0-0.74195-4.6902-2.1544-18.156-2.4373zm65.094,0c0.35744,0.73095,0.5625,1.5372,0.5625,2.4061,0,0.87594-0.20306,1.7014-0.5625,2.4373,13.471-0.283,18.156-1.667,18.156-2.406,0-0.742-4.69-2.154-18.156-2.437zm-74.656,5.468c-6.523,11.842-7.675,16.627-7.0312,16.999,0.644,0.371,4.2152-3.01,11.219-14.562-1.7502-0.135-3.2694-1.056-4.1875-2.437zm65.062,0c-6.524,11.842-7.675,16.623-7.031,16.999,0.643,0.37,4.216-3.007,11.219-14.562-1.752-0.135-3.27-1.056-4.188-2.437zm-57.688,2.5311c-2.15,3.6138-3.9764,6.4613-5.5312,8.7182l-0.0308,25.78h5.5312l0.03125-34.498zm65.094,0c-2.1496,3.6137-4.0086,6.4613-5.5625,8.7182v25.78h5.5312l0.03125-34.498z" />
   </defs>
   <g
-     transform="scale(3.25) translate(5.055 20.166)"
+     transform="scale(2.25)"
      id="g3123">
-    <use
-       xlink:href="#ICON_ONE"
-       id="use3125" />
+     <text
+        id="text3145"
+        x="333"
+        y="95"
+        font-size="100px"
+        style="font-size:100px;text-anchor:end;font-family:DejaVu Sans">TIME_NOW</text>
+
   </g>
   <g
-     transform="scale(1.2) translate(34.167 399.725)"
+     transform="scale(1.2) translate(50 245)"
      id="g3127">
     <use
-       xlink:href="#ICON_TWO"
+       xlink:href="#ICON_ONE"
        id="use3129" />
   </g>
   <g
-     transform="scale(1.2) translate(200 399.725)"
+     transform="scale(1.2) translate(200 245)"
      id="g3131">
     <use
-       xlink:href="#ICON_THREE"
+       xlink:href="#ICON_TWO"
        id="use3133" />
   </g>
   <g
-     transform="scale(1.2) translate(365.833 399.725)"
+     transform="scale(1.2) translate(400 245)"
      id="g3135">
     <use
-       xlink:href="#ICON_FOUR"
+       xlink:href="#ICON_THREE"
        id="use3137" />
   </g>
   <text
      id="text3141"
-     x="76.039063"
-     y="52.256058"
+     x="220"
+     y="35"
      font-size="35px"
-     style="font-size:35px;text-anchor:middle;font-family:DejaVu Sans">Today:</text>
-  <text
-     id="text3143"
-     x="446.26932"
-     y="121.70689"
-     font-size="35px"
-     style="font-size:35px;text-anchor:middle;font-family:DejaVu Sans">High</text>
-  <text
-     id="text3145"
-     x="526.72095"
-     y="209.20592"
-     font-size="100px"
-     style="font-size:100px;text-anchor:end;font-family:DejaVu Sans">HIGH_ONE</text>
-  <text
-     id="text3147"
-     x="548.30981"
-     y="182.48717"
-     font-size="64px"
-     style="font-size:64px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
-  <text
-     id="text3149"
-     x="492.80057"
-     y="275.13895"
-     font-size="35px"
-     style="font-size:35px;text-anchor:middle;font-family:DejaVu Sans">Feels Like</text>
-  <text
-     id="text3151"
-     x="526.23267"
-     y="359.8533"
-     font-size="100px"
-     style="font-size:100px;text-anchor:end;font-family:DejaVu Sans">LOW_ONE</text>
-  <text
-     id="text3153"
-     x="548.30981"
-     y="333.13455"
-     font-size="64px"
-     style="font-size:64px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
+     style="font-size:35px;text-anchor:middle;font-family:DejaVu Sans">TODAY_DATE</text>
+
+
   <text
      id="text3155"
      x="102.92969"
-     y="465.16922"
+     y="295"
      font-size="32px"
-     style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">Tomorrow</text>
+     style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">Today</text>
   <text
      id="text3157"
      x="74.958336"
-     y="635.68347"
+     y="410"
      font-size="20px"
      style="font-size:20px;text-anchor:middle;font-family:DejaVu Sans">High</text>
   <text
      id="text3159"
      x="116.05887"
-     y="686.3255"
+     y="460"
      font-size="58px"
-     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_TWO</text>
+     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_ONE</text>
   <text
      id="text3161"
      x="134.01662"
-     y="670.86145"
+     y="445"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <text
      id="text3163"
      x="71.906197"
-     y="724.48578"
+     y="499"
      font-size="20px"
      style="font-size:20px;text-anchor:middle;font-family:DejaVu Sans">Feels Like</text>
   <text
      id="text3165"
      x="116.00232"
-     y="773.51617"
+     y="548"
      font-size="58px"
-     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">LOW_TWO</text>
+     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">LOW_ONE</text>
   <text
      id="text3167"
      x="134.01663"
-     y="758.05206"
+     y="533"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <text
      id="text3169"
      x="300.3125"
-     y="466.15359"
+     y="295"
      font-size="32px"
-     style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_THREE</text>
+     style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_TWO</text>
   <text
      id="text3171"
      x="273.95834"
-     y="635.68347"
+     y="410"
      font-size="20px"
      style="font-size:20px;text-anchor:middle;font-family:DejaVu Sans">High</text>
   <text
      id="text3173"
      x="314.15454"
-     y="686.3255"
+     y="460"
      font-size="58px"
-     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_THREE</text>
+     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_TWO</text>
   <text
      id="text3175"
      x="333.01663"
-     y="670.86145"
+     y="445"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <text
      id="text3177"
      x="270.90619"
-     y="724.48578"
+     y="499"
      font-size="20px"
      style="font-size:20px;text-anchor:middle;font-family:DejaVu Sans">Feels Like</text>
   <text
      id="text3179"
      x="314.08383"
-     y="773.51617"
+     y="548"
      font-size="58px"
-     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">LOW_THREE</text>
+     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">LOW_TWO</text>
   <text
      id="text3181"
      x="333.0166"
-     y="758.05206"
+     y="533"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <text
      id="text3183"
      x="499.82813"
-     y="466.15359"
+     y="295"
      font-size="32px"
-     style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_FOUR</text>
+     style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_THREE</text>
   <text
      id="text3185"
      x="472.95834"
-     y="635.68347"
+     y="410"
      font-size="20px"
      style="font-size:20px;text-anchor:middle;font-family:DejaVu Sans">High</text>
   <text
      id="text3187"
      x="513.30994"
-     y="686.3255"
+     y="460"
      font-size="58px"
-     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_FOUR</text>
+     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_THREE</text>
   <text
      id="text3189"
      x="532.0166"
-     y="670.86145"
+     y="445"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <text
      id="text3191"
      x="469.90619"
-     y="724.48578"
+     y="499"
      font-size="20px"
      style="font-size:20px;text-anchor:middle;font-family:DejaVu Sans">Feels Like</text>
   <text
      id="text3193"
      x="513.73383"
-     y="773.51617"
+     y="548"
      font-size="58px"
-     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">LOW_FOUR</text>
+     style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">LOW_THREE</text>
   <text
      id="text3195"
      x="532.0166"
-     y="758.05206"
+     y="533"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
   <path
-     d="m199,447.35,0,321.5,3,0,0-321.5-3,0z"
+     d="m199,245,0,321.5,3,0,0-321.5-3,0z"
      id="path3197" />
   <path
-     d="m398,447.35,0,321.5,3,0,0-321.5-3,0z"
+     d="m398,245,0,321.5,3,0,0-321.5-3,0z"
      id="path3199" />
   <text
      style="font-size:12px;text-anchor:middle"

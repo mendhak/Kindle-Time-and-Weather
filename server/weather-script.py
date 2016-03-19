@@ -106,8 +106,10 @@ beaufort_scale = [ 0, 1, 4, 8, 13, 18, 25, 31, 39, 47, 55, 64, 74 ]
 #
 # Download and parse weather data - location 352448 = Loughton, Essex
 #
-url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352448?res=daily&key='+myApiKey
-weather_xml = urllib2.urlopen(url).read()
+#url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/352448?res=daily&key='+myApiKey
+#weather_xml = urllib2.urlopen(url).read()
+weather_xml = '<?xml version="1.0" encoding="UTF-8"?><SiteRep><Wx><Param name="FDm" units="C">Feels Like Day Maximum Temperature</Param><Param name="FNm" units="C">Feels Like Night Minimum Temperature</Param><Param name="Dm" units="C">Day Maximum Temperature</Param><Param name="Nm" units="C">Night Minimum Temperature</Param><Param name="Gn" units="mph">Wind Gust Noon</Param><Param name="Gm" units="mph">Wind Gust Midnight</Param><Param name="Hn" units="%">Screen Relative Humidity Noon</Param><Param name="Hm" units="%">Screen Relative Humidity Midnight</Param><Param name="V" units="">Visibility</Param><Param name="D" units="compass">Wind Direction</Param><Param name="S" units="mph">Wind Speed</Param><Param name="U" units="">Max UV Index</Param><Param name="W" units="">Weather Type</Param><Param name="PPd" units="%">Precipitation Probability Day</Param><Param name="PPn" units="%">Precipitation Probability Night</Param></Wx><DV dataDate="2016-03-19T14:00:00Z" type="Forecast"><Location i="352448" lat="51.6555" lon="0.0698" name="LOUGHTON" country="ENGLAND" continent="EUROPE" elevation="52.0"><Period type="Day" value="2016-03-19Z"><Rep D="NE" Gn="18" Hn="74" PPd="12" S="11" V="VG" Dm="8" FDm="5" W="8" U="2">Day</Rep><Rep D="NNE" Gm="18" Hm="84" PPn="44" S="9" V="VG" Nm="4" FNm="1" W="8">Night</Rep></Period><Period type="Day" value="2016-03-20Z"><Rep D="NNE" Gn="16" Hn="70" PPd="43" S="9" V="VG" Dm="9" FDm="6" W="8" U="2">Day</Rep><Rep D="NW" Gm="7" Hm="90" PPn="6" S="4" V="GO" Nm="3" FNm="1" W="7">Night</Rep></Period><Period type="Day" value="2016-03-21Z"><Rep D="NW" Gn="22" Hn="65" PPd="9" S="11" V="VG" Dm="9" FDm="6" W="7" U="3">Day</Rep><Rep D="NW" Gm="9" Hm="89" PPn="6" S="4" V="GO" Nm="4" FNm="2" W="7">Night</Rep></Period><Period type="Day" value="2016-03-22Z"><Rep D="NW" Gn="13" Hn="68" PPd="8" S="4" V="VG" Dm="9" FDm="8" W="8" U="2">Day</Rep><Rep D="NW" Gm="7" Hm="88" PPn="11" S="4" V="GO" Nm="4" FNm="2" W="8">Night</Rep></Period><Period type="Day" value="2016-03-23Z"><Rep D="WNW" Gn="18" Hn="67" PPd="9" S="9" V="VG" Dm="9" FDm="6" W="8" U="2">Day</Rep><Rep D="WSW" Gm="13" Hm="85" PPn="10" S="7" V="VG" Nm="4" FNm="1" W="7">Night</Rep></Period></Location></DV></SiteRep>'
+print weather_xml
 dom = minidom.parseString(weather_xml)
 
 
@@ -203,33 +205,33 @@ output = codecs.open(template , 'r', encoding='utf-8').read()
 output = output.replace('ICON_ONE',icons[0])
 output = output.replace('ICON_TWO',icons[1])
 output = output.replace('ICON_THREE',icons[2])
-output = output.replace('ICON_FOUR',icons[3])
+
+output = output.replace('TIME_NOW',datetime.datetime.now().strftime("%H:%M"))
 
 if temps_display:
    output = output.replace('HIGH_ONE',str(highs[0]))
    output = output.replace('HIGH_TWO',str(highs[1]))
    output = output.replace('HIGH_THREE',str(highs[2]))
-   output = output.replace('HIGH_FOUR',str(highs[3]))
 else:
    output = output.replace('WIND_ONE'  ,wind_icon[0])
    output = output.replace('WIND_TWO'  ,wind_icon[1])
    output = output.replace('WIND_THREE',wind_icon[2])
-   output = output.replace('WIND_FOUR' ,wind_icon[3])
+
    output = output.replace('BFT_ONE'  ,speed_bft[0])
    output = output.replace('BFT_TWO'  ,speed_bft[1])
    output = output.replace('BFT_THREE',speed_bft[2])
-   output = output.replace('BFT_FOUR' ,speed_bft[3])
-
 
 
 output = output.replace('LOW_ONE',str(feels[0]))
 output = output.replace('LOW_TWO',str(feels[1]))
 output = output.replace('LOW_THREE',str(feels[2]))
-output = output.replace('LOW_FOUR',str(feels[3]))
+
 
 # Insert current time
 # (thanks Jennifer http://www.shatteredhaven.com/2012/11/1347365-kindle-weather-display.html)
 output = output.replace('DATE_VALPLACE',str(dtnow))
+readableDate = datetime.datetime.now().strftime("%A %B %d, %Y")
+output = output.replace('TODAY_DATE', str(readableDate))
 
 # Insert days of week
 one_day = datetime.timedelta(days=1)
@@ -239,8 +241,9 @@ days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturda
 print days_of_week[(today_dt + 2*one_day).weekday()]
 print days_of_week[(today_dt + 3*one_day).weekday()]
 
+output = output.replace('DAY_TWO',days_of_week[(today_dt + 1*one_day).weekday()])
 output = output.replace('DAY_THREE',days_of_week[(today_dt + 2*one_day).weekday()])
-output = output.replace('DAY_FOUR',days_of_week[(today_dt + 3*one_day).weekday()])
+
 
 # Write output
 codecs.open('weather-script-output.svg', 'w', encoding='utf-8').write(output)

@@ -16,7 +16,7 @@ echo "------ python get data from metoffice"
 python weather-script.py
 
 echo "------ convert to png"
-convert -resize 758x1024\!  -depth 8 weather-script-output.svg weather-script-output.png
+convert -rotate 90 -resize 758x1024\!  -depth 8 weather-script-output.svg weather-script-output.png
 
 echo "------ shrink png"
 pngcrush  -q -c 0 weather-script-output.png weather-script-output_s.png
