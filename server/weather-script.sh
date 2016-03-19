@@ -3,13 +3,6 @@
 cd "$(dirname "$0")"
 
 
-if [ ! -d pngcrush-1.7.67 ]
-then
-  echo "Seem to be missing pngcrush-1.7.67 in "$(pwd)
-  #exit 1
-fi
-
-
 date
 
 echo "------ python get data from metoffice"
