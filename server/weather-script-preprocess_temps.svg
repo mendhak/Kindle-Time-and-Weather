@@ -192,13 +192,13 @@
      style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">DAY_TWO</text>
   <text
      id="text3173"
-     x="410"
+     x="430"
      y="540"
      font-size="58px"
      style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_TWO/LOW_TWO</text>
   <text
      id="text3175"
-     x="435"
+     x="455"
      y="525"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
