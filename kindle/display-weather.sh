@@ -15,7 +15,7 @@ then
   eips -p
 fi
 
-if wget http://mendhak.com:9000/weather-script-output.png; then
+if wget -O weather-script-output.png http://time.mendhak.com; then
 	eips -g weather-script-output.png
 else
 	eips -g weather-image-error.png

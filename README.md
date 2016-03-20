@@ -18,7 +18,7 @@ Create running container
 
     sudo docker-compose up -d
 
-Wait a minute or so, and the image should become available at port 9000 - http://mendhak.com:9000/weather-script-output.png
+Wait a minute or so, and the image should become available at port 9000 but with some clever proxying you can make it a bit nicer, like http://time.mendhak.com
 
 You can change the port in the `docker-compose.yml`
 
