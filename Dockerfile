@@ -3,6 +3,9 @@ FROM phusion/baseimage:0.9.16
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
+
+RUN ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+
 #Install dependencies
 RUN apt-get update
 RUN apt-get install -y python cron lighttpd librsvg2-bin pngcrush imagemagick rsyslog
