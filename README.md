@@ -1,9 +1,12 @@
 
 # Kindle Time and Weather
 
-Similar to [Kindle Weather Display](http://www.mpetroff.net/archives/2012/09/14/kindle-weather-display/), but with time and Docker.
+Something you can do with an old Kindle - shows time and weather.  
+
 
 ![](screenshot.png)
+
+Similar to the [original weather display](http://www.mpetroff.net/archives/2012/09/14/kindle-weather-display/), but with time and a Docker container.
 
 ## Server side
 
