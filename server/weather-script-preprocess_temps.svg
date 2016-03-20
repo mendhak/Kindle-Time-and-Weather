@@ -211,13 +211,13 @@
 
   <text
      id="text3187"
-     x="625"
+     x="645"
      y="540"
      font-size="58px"
      style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_THREE/LOW_THREE</text>
   <text
      id="text3189"
-     x="645"
+     x="665"
      y="525"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
