@@ -242,7 +242,7 @@ output = output.replace('LOW_THREE',str(feels[2]))
 # Insert current time
 # (thanks Jennifer http://www.shatteredhaven.com/2012/11/1347365-kindle-weather-display.html)
 output = output.replace('DATE_VALPLACE',str(dtnow))
-readableDate = datetime.datetime.now().strftime("%A %B %d, %Y")
+readableDate = datetime.datetime.now().strftime("%A %B %d")
 output = output.replace('TODAY_DATE', str(readableDate))
 
 # Insert days of week
