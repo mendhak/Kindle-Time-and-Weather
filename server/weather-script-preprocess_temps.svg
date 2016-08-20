@@ -166,7 +166,7 @@
 
   <text
      id="text3155"
-     x="195"
+     x="175"
      y="375"
      font-size="32px"
      style="font-size:32px;text-anchor:middle;font-family:DejaVu Sans">Today</text>
@@ -211,13 +211,13 @@
 
   <text
      id="text3187"
-     x="645"
+     x="665"
      y="540"
      font-size="58px"
      style="font-size:58px;text-anchor:end;font-family:DejaVu Sans">HIGH_THREE/LOW_THREE</text>
   <text
      id="text3189"
-     x="665"
+     x="685"
      y="525"
      font-size="37px"
      style="font-size:37px;text-anchor:middle;font-family:DejaVu Sans">°C</text>
