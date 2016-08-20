@@ -1,9 +1,10 @@
 
 
 weather:
-  image: kindleweather
+  build: ./
+  dockerfile: Dockerfile
   container_name: kindleweather
   ports:
     - "9000:3000"
-  
-  
+
+

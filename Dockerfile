@@ -17,7 +17,7 @@ ADD ./server /www
 
 RUN cron
 #Set up cron job for updating weather forecast
-RUN crontab -l | { cat; echo "* * * * * cd /www ; /www/weather-script.sh"; } | crontab -
+RUN crontab -l | { cat; echo "* * * * * cd /www ; /www/weather-script.sh > /www/weather-script-output.log"; } | crontab -
 
 #Run script once initially
 #RUN /www/weather-script.sh
