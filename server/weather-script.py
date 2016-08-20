@@ -120,11 +120,15 @@ if(os.path.isfile(os.getcwd() + "/metoffice.xml")):
 
 #If old file or file doesn't exist, time to download it
 if(stale):
-    url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/353773?res=daily&key=7557844e-c57a-4fc6-90d0-055fcce3018c'
-    weather_xml = urllib2.urlopen(url).read()
-    with open(os.getcwd() + "/metoffice.xml", "w") as text_file:
-        text_file.write(weather_xml)
-
+    try:
+        url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/353773?res=daily&key=7557844e-c57a-4fc6-90d0-055fcce3018c'
+        weather_xml = urllib2.urlopen(url).read()
+        with open(os.getcwd() + "/metoffice.xml", "w") as text_file:
+            text_file.write(weather_xml)
+    except:
+        print "FAILED. using previous read"
+        with open(os.getcwd() + "/metoffice.xml", 'r') as content_file:
+            weather_xml = content_file.read()
 
 dom = minidom.parseString(weather_xml)
 
