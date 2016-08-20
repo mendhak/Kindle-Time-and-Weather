@@ -7,39 +7,29 @@
 # Owen Bullock - UK Weather - MetOffice - Aug 2013
 # Apr 2014 - amended for Wind option
 #
+# Mendhak - redone for WeatherUnderground API
 
+import json
 import urllib2
 from xml.dom import minidom
 import datetime
 import codecs
 import os.path
 import time
-
-
-#
-# MetOffice API Key - unique to me. Todo - put into file
-#
-myApiKey="7557844e-c57a-4fc6-90d0-055fcce3018c"
-
+import sys
+import os
 
 #
-#  temps_display=true:  kindle displays 'High' temp + 'Feels Like' temp
-#               false:  kindle displays 'Feels Like' + Wind
+# Weather Underground API Key - unique to me. 
 #
-temps_display=1
+wuapikey= os.environ.get('WUNDERGROUND_API_KEY') or "2f1126aef047991e"
 
 
-#
-#  magic Svg template
-#
-if temps_display :
-   template = 'weather-script-preprocess_temps.svg'
-else:
-   template = 'weather-script-preprocess_wind.svg'
+template = 'weather-script-preprocess_temps.svg'
 
 #
-#  Map the MetOffice weather codes to Icons.
-# ( See http://www.metoffice.gov.uk/datapoint/product/uk-3hourly-site-specific-forecast )
+#  Map the Wunderground weather codes to Icons.
+# ( See https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets&MR=1 )
 #
 mapping = [
 [0 , 'skc     '],  #  Clear night                     skc.svg
@@ -75,139 +65,83 @@ mapping = [
 [30, 'tsra    '],  #  Thunder                         tsra.svg
 ]
 
-#
-# Wind - I'm mapping to one of 8 direction icons. Will do the
-# full 16 at some point...
-#
-wind_mapping = {
-'N'  : '8',
-'NNE': '8',
-'NE' : '14',
-'ENE': '14',
-'E'  : '12',
-'ESE': '12',
-'SE' : '10',
-'SSE': '10',
-'S'  : '0',
-'SSW': '0',
-'SW' : '6',
-'WSW': '6',
-'W'  : '4',
-'WNW': '4',
-'NW' : '2',
-'NNW': '2',
+icon_dict={
+'chanceflurries':'sn',
+'chancerain':'hi_shwrs',
+'chancesleet':'rasn',
+'chancesnow':'sn',
+'chancetstorms':'tsra',
+'clear':'skc',
+'cloudy':'bkn',
+'flurries':'sn',
+'fog':'fg',
+'hazy':'fg',
+'mostlycloudy':'ovc',
+'mostlysunny':'skc',
+'partlycloudy':'sct',
+'partlysunny':'skc',
+'sleet':'rasn',
+'rain':'ra',
+'sleet':'rasn',
+'snow':'sn',
+'sunny':'skc',
+'tstorms':'tsra',
+'cloudy':'bkn',
+'partlycloudy':'bkn',
+
 }
-
-#
-# minimum mph value for each number on the bft scale 0-12
-#
-beaufort_scale = [ 0, 1, 4, 8, 13, 18, 25, 31, 39, 47, 55, 64, 74 ]
-
-
 
 #
 # Download and parse weather data - location 353773 = Sutton, Surrey
 #
 
-weather_xml=''
+weather_json=''
 stale=True
 
-if(os.path.isfile(os.getcwd() + "/metoffice.xml")):
+if(os.path.isfile(os.getcwd() + "/wunderground.json")):
     #Read the contents anyway
-    with open(os.getcwd() + "/metoffice.xml", 'r') as content_file:
-        weather_xml = content_file.read()
-    stale=time.time() - os.path.getmtime(os.getcwd() + "/metoffice.xml") > (12*60*60)
+    with open(os.getcwd() + "/wunderground.json", 'r') as content_file:
+        weather_json = content_file.read()
+    stale=time.time() - os.path.getmtime(os.getcwd() + "/wunderground.json") > (12*60*60)
 
 #If old file or file doesn't exist, time to download it
 if(stale):
     try:
-        url='http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/353773?res=daily&key=7557844e-c57a-4fc6-90d0-055fcce3018c'
-        weather_xml = urllib2.urlopen(url).read()
-        with open(os.getcwd() + "/metoffice.xml", "w") as text_file:
-            text_file.write(weather_xml)
+        print "Old file, attempting re-download"
+        url='http://api.wunderground.com/api/' + wuapikey + '/forecast/q/UK/Reigate.json'
+        weather_json = urllib2.urlopen(url).read()
+        with open(os.getcwd() + "/wunderground.json", "w") as text_file:
+            text_file.write(weather_json)
     except:
         print "FAILED. using previous read"
-        with open(os.getcwd() + "/metoffice.xml", 'r') as content_file:
-            weather_xml = content_file.read()
+        with open(os.getcwd() + "/wunderground.json", 'r') as content_file:
+            weather_json = content_file.read()
 
-dom = minidom.parseString(weather_xml)
+weatherData = json.loads(weather_json)
+icon_one = weatherData['forecast']['simpleforecast']['forecastday'][0]['icon']
+high_one = weatherData['forecast']['simpleforecast']['forecastday'][0]['high']['celsius']
+low_one  = weatherData['forecast']['simpleforecast']['forecastday'][0]['low']['celsius']
+day_one  = weatherData['forecast']['simpleforecast']['forecastday'][0]['date']['weekday']
+
+icon_two = weatherData['forecast']['simpleforecast']['forecastday'][1]['icon']
+high_two = weatherData['forecast']['simpleforecast']['forecastday'][1]['high']['celsius']
+low_two  = weatherData['forecast']['simpleforecast']['forecastday'][1]['low']['celsius']
+day_two  = weatherData['forecast']['simpleforecast']['forecastday'][1]['date']['weekday']
+
+icon_three = weatherData['forecast']['simpleforecast']['forecastday'][2]['icon']
+high_three = weatherData['forecast']['simpleforecast']['forecastday'][2]['high']['celsius']
+low_three  = weatherData['forecast']['simpleforecast']['forecastday'][2]['low']['celsius']
+day_three  = weatherData['forecast']['simpleforecast']['forecastday'][2]['date']['weekday']
 
 
+print icon_one,low_one,high_one,day_one
+print icon_two,low_two,high_two,day_two
+print icon_three,low_three,high_three,day_three
 
-# get date
-periods=dom.getElementsByTagName('Period')
-today_str = periods[0].getAttribute('value')
-today_dt= datetime.datetime.strptime(today_str, '%Y-%m-%dZ')
-print "DAY:",today_dt
 
 
 dtnow=datetime.datetime.now().strftime("%d-%b %H:%M")
 print "NOW:",dtnow
-
-
-# # #  This is the xml format from the met Office
-# # #  - One <period> for each day of the forecast. Within it theres a line for Day and one for Night
-# # #
-#<DV dataDate="2014-04-03T11:00:00Z" type="Forecast">
-#  <Location i="352448" lat="51.6555" lon="0.0698" name="LOUGHTON" country="ENGLAND" continent="EUROPE" elevation="52.0">
-#    <Period type="Day" value="2014-04-03Z">
-#      <Rep D="ESE" Gn="18" Hn="71" PPd="8" S="11" V="MO" Dm="17" FDm="15" W="7" U="2">Day</Rep>
-#      <Rep D="SSW" Gm="16" Hm="89" PPn="11" S="7" V="MO" Nm="10" FNm="9" W="8">Night</Rep>
-#    </Period>
-#    <Period type="Day" value="2014-04-04Z">
-#      <Rep D="WSW" Gn="18" Hn="58" PPd="5" S="9" V="GO" Dm="15" FDm="13" W="7" U="3">Day</Rep>
-#      <Rep D="SW" Gm="11" Hm="87" PPn="5" S="7" V="GO" Nm="6" FNm="6" W="2">Night</Rep>
-#    </Period>
-
-
-
-# get temps:  Dm is Day Max, FDm is Feels Like Day Max
-# get weather: W is weather type
-# get wind:    D is wind dir, S is Speed, Gn is Gust at Noon
-
-
-highs = [None]*7
-feels = [None]*7
-icons     =  [None]*7
-wind_icon =  [None]*7
-speed_bft =  [""]*7
-
-i=0
-for period in periods:
-    thisDay=period.getAttribute('value')
-    print "period:",i
-    Reps = period.getElementsByTagName('Rep')
-       # temps
-    highs[i] = Reps[0].getAttribute('Dm')  # 0 = Day 1= Night
-    feels[i] = Reps[0].getAttribute('FDm')
-    print "   DayMax:",highs[i]
-    print "   Feels :",feels[i]
-       # weather
-    weather= int(Reps[0].getAttribute('W'))
-    icons[i] = mapping[weather][1];
-    icons[i] = icons[i].rstrip(' ')
-    print "      Weather :",weather,icons[i]+'.svg'
-       # wind speed. Ignoring Gust for now
-    dir       =     Reps[0].getAttribute('D')
-    speed_mph = int(Reps[0].getAttribute('S'))
-    wind_icon[i] = "wind"+wind_mapping[dir]
-
-    for bft, min_mph in enumerate(beaufort_scale):
-       if speed_mph <= min_mph:
-          break;
-
-    # pad the string so they centre on the icon when printed
-    # bug (?) with imagemagick convert 6.3.7
-    #  - works fine with 6.6.0 - the padding on the smaller 3 icons is messed up
-    speed_bft[i] = str(bft)
-    if i== 0 and bft < 10 :
-       speed_bft[i] = speed_bft[i]+" "
-    print "      Wind    :",dir , speed_mph ,"mph", wind_icon[i], "Force ",speed_bft[i]+"<<<"
-
-     # and loop
-    i=i+1
-
-
 
 
 #
@@ -218,29 +152,21 @@ for period in periods:
 output = codecs.open(template , 'r', encoding='utf-8').read()
 
 # Insert weather icons and temperatures
-output = output.replace('ICON_ONE',icons[0])
-output = output.replace('ICON_TWO',icons[1])
-output = output.replace('ICON_THREE',icons[2])
+output = output.replace('ICON_ONE',icon_dict[icon_one])
+output = output.replace('ICON_TWO',icon_dict[icon_two])
+output = output.replace('ICON_THREE',icon_dict[icon_three])
 
 output = output.replace('TIME_NOW',datetime.datetime.now().strftime("%H:%M"))
 
-if temps_display:
-   output = output.replace('HIGH_ONE',str(highs[0]))
-   output = output.replace('HIGH_TWO',str(highs[1]))
-   output = output.replace('HIGH_THREE',str(highs[2]))
-else:
-   output = output.replace('WIND_ONE'  ,wind_icon[0])
-   output = output.replace('WIND_TWO'  ,wind_icon[1])
-   output = output.replace('WIND_THREE',wind_icon[2])
 
-   output = output.replace('BFT_ONE'  ,speed_bft[0])
-   output = output.replace('BFT_TWO'  ,speed_bft[1])
-   output = output.replace('BFT_THREE',speed_bft[2])
+output = output.replace('HIGH_ONE',high_one)
+output = output.replace('HIGH_TWO',high_two)
+output = output.replace('HIGH_THREE',high_three)
 
 
-output = output.replace('LOW_ONE',str(feels[0]))
-output = output.replace('LOW_TWO',str(feels[1]))
-output = output.replace('LOW_THREE',str(feels[2]))
+output = output.replace('LOW_ONE',low_one)
+output = output.replace('LOW_TWO',low_two)
+output = output.replace('LOW_THREE',low_three)
 
 
 # Insert current time
@@ -249,19 +175,9 @@ output = output.replace('DATE_VALPLACE',str(dtnow))
 readableDate = datetime.datetime.now().strftime("%A %B %d")
 output = output.replace('TODAY_DATE', str(readableDate))
 
-# Insert days of week
-one_day = datetime.timedelta(days=1)
-print " ONE DAY:",one_day
-
-days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-print days_of_week[(today_dt + 2*one_day).weekday()]
-print days_of_week[(today_dt + 3*one_day).weekday()]
-
-output = output.replace('DAY_TWO',days_of_week[(today_dt + 1*one_day).weekday()])
-output = output.replace('DAY_THREE',days_of_week[(today_dt + 2*one_day).weekday()])
-
+output = output.replace('DAY_TWO',day_two)
+output = output.replace('DAY_THREE',day_three)
 
 # Write output
 codecs.open('weather-script-output.svg', 'w', encoding='utf-8').write(output)
 
-# EOF
