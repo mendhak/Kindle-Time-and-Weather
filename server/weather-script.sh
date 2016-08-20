@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 
 date
 
-echo "------ python get data from metoffice"
+echo "------ python get data from Wunderground"
 python weather-script.py
 
 echo "------ convert to png and rotate resize for Kindle screen"
